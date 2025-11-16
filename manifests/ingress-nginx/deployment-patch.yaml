@@ -9,9 +9,9 @@ spec:
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       nodeSelector:
-        kubernetes.io/hostname: "master"
+        kubernetes.io/hostname: "main"
       tolerations:
       - effect: NoSchedule
         key: node-role.kubernetes.io/control-plane
       - effect: NoSchedule
-        key: node-role.kubernetes.io/master
+        key: node-role.kubernetes.io/main
