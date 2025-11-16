@@ -6,13 +6,13 @@ Atlantis for diploma project
 # Kube-Prometheus Stack Automation
 
 ## Secrets Required in GitHub:
-- `YC_TOKEN` - Yandex Cloud OAuth или IAM токен
-- `YC_CLOUD_ID` - ID облака
-- `YC_FOLDER_ID` - ID folder
-- `YC_ACCESS_KEY` - Static key для S3
-- `YC_SECRET_KEY` - Secret key для S3
-- `YC_S3_BUCKET` - Имя бакета для state
-- `YC_S3_STATE_KEY` - Ключ для state файла
-- `KUBE_CONFIG_DATA` - kubeconfig кластера
-- `GRAFANA_ADMIN_PASSWORD` - Пароль админа Grafana
+- `YC_TOKEN` - Yandex Cloud OAuth or IAM токен
+- `YC_CLOUD_ID` 
+- `YC_FOLDER_ID` 
+- `YC_ACCESS_KEY`
+- `YC_SECRET_KEY` 
+- `YC_S3_BUCKET` - bucket name
+- `YC_S3_STATE_KEY` - key for state file
+- `KUBE_CONFIG_DATA` - ```cat ~/.kube/config | base64 -w0```
+- `GRAFANA_ADMIN_PASSWORD`
 
