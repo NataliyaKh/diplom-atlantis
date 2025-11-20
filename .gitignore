@@ -5,6 +5,7 @@
 *.tfvars
 backend.conf
 secrets.tfvars
+terraform.tfvars
 
 # Kubernetes
 *.kubeconfig
