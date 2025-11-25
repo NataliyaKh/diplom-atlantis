@@ -1,27 +1,40 @@
+# StorageClass
+resource "kubernetes_storage_class_v1" "cluster_storage" {
+  metadata {
+    name = "standard"
+  }
+  
+  storage_provisioner = "kubernetes.io/no-provisioner"
+  volume_binding_mode = "WaitForFirstConsumer"
+  reclaim_policy      = "Retain"
+}
+
+
 module "kube_prometheus" {
   source = "../modules/kube-prometheus"
 
-  # Основные параметры
+
+  # Basic parameters
   cluster_name     = var.cluster_name
   environment      = "prod"
   
-  # Версии
+  # Versions
   prometheus_stack_version = var.prometheus_stack_version
   
-  # Ресурсы
+  # Resources
   prometheus_replicas = var.prometheus_replicas
   prometheus_retention = var.prometheus_retention
   
-  # Yandex Cloud специфичные настройки
-  storage_class_name = var.storage_class_name
+  # Yandex Cloud
+  storage_class_name = "standard"
   
-  # Секреты
+  # Secrets
   grafana_admin_password = var.grafana_admin_password
   
-  # Настройки мониторинга
+  # Monitoring
   enable_alertmanager = true
   enable_thanos       = var.enable_thanos
   
-  # Дополнительные values для Helm
+  # Helm values
   extra_values = var.extra_values
 }
