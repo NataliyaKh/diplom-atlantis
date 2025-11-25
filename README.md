@@ -4,8 +4,8 @@ Atlantis for diploma project
 
 ## Secrets Required in GitHub:
 - `YC_TOKEN` - Yandex Cloud OAuth or IAM токен
-- `YC_CLOUD_ID` - ID облака
-- `YC_FOLDER_ID` - ID folder
+- `YC_CLOUD_ID`
+- `YC_FOLDER_ID`
 - `YC_ACCESS_KEY` - Static key for S3
 - `YC_SECRET_KEY` - Secret key for S3 
 - `YC_S3_BUCKET` - bucket name
