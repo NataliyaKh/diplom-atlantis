@@ -17,7 +17,7 @@ projects:
       YC_CLOUD_ID: $YC_CLOUD_ID
       YC_FOLDER_ID: $YC_FOLDER_ID
       
-      # S3 бэкенд
+      # S3 backend
       AWS_ACCESS_KEY_ID: $YC_ACCESS_KEY
       AWS_SECRET_ACCESS_KEY: $YC_SECRET_KEY
       

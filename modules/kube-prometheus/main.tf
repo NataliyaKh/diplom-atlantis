@@ -1,4 +1,4 @@
-# Создание namespace для мониторинга
+# Create namespace
 resource "kubernetes_namespace" "monitoring" {
   metadata {
     name = "monitoring"
@@ -10,7 +10,7 @@ resource "kubernetes_namespace" "monitoring" {
   }
 }
 
-# Создание секрета для Grafana
+# Create secret for Grafana
 resource "kubernetes_secret" "grafana_admin" {
   metadata {
     name      = "grafana-admin-credentials"
@@ -25,7 +25,7 @@ resource "kubernetes_secret" "grafana_admin" {
   depends_on = [kubernetes_namespace.monitoring]
 }
 
-# Network Policy для изоляции
+# Network Policy
 resource "kubernetes_network_policy" "monitoring_isolate" {
   count = var.network_policy_enabled ? 1 : 0
   
@@ -63,7 +63,7 @@ resource "kubernetes_network_policy" "monitoring_isolate" {
 }
 
 
-# Установка kube-prometheus stack
+# Deploy kube-prometheus stack
 resource "helm_release" "kube_prometheus_stack" {
   name       = "kube-prometheus-stack"
   repository = "https://prometheus-community.github.io/helm-charts"
@@ -124,7 +124,7 @@ resource "helm_release" "kube_prometheus_stack" {
     create_before_destroy = true
   }
 }
-# Ingress для Grafana
+# Ingress for Grafana
 resource "kubernetes_ingress_v1" "grafana" {
   count = var.enable_ingress ? 1 : 0
 
@@ -160,7 +160,7 @@ resource "kubernetes_ingress_v1" "grafana" {
   depends_on = [helm_release.kube_prometheus_stack]
 }
 
-# Network Policy для Grafana
+# Network Policy for Grafana
 resource "kubernetes_network_policy" "grafana" {
   count = var.enable_network_policies ? 1 : 0
 

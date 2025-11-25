@@ -6,7 +6,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/proxy-body-size: "100m"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"  # опционально для TLS
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: nginx
   rules:
@@ -20,7 +20,6 @@ spec:
             port:
               number: 80
 ---
-# Дополнительный ingress для Prometheus (опционально)
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -41,7 +40,6 @@ spec:
             port:
               number: 9090
 ---
-# Дополнительный ingress для Alertmanager (опционально)
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:

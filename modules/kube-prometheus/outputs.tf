@@ -1,4 +1,3 @@
-# Основные выходные данные
 output "namespace" {
   description = "Monitoring namespace name"
   value       = kubernetes_namespace.monitoring.metadata[0].name
@@ -66,14 +65,14 @@ output "grafana_url" {
   value       = "http://${helm_release.kube_prometheus_stack.name}-grafana.monitoring.svc.cluster.local"
 }
 
-# Данные для подключения
+# Stack values
 output "kube_prometheus_stack_values" {
   description = "Values used for kube-prometheus-stack"
   value       = helm_release.kube_prometheus_stack.values
   sensitive   = true
 }
 
-# Информация о ресурсах
+# Resources
 output "deployed_resources" {
   description = "Map of deployed resources"
   value = {
@@ -85,7 +84,7 @@ output "deployed_resources" {
   }
 }
 
-# Команды для проверки
+# Verification commands
 output "verification_commands" {
   description = "Commands to verify the deployment"
   value = {

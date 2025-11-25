@@ -25,7 +25,6 @@ terraform {
   }
 
   backend "s3" {
-    # Конфигурация через backend.conf
   }
 }
 

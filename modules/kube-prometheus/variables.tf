@@ -1,4 +1,3 @@
-# Основные параметры
 variable "cluster_name" {
   type        = string
   description = "Name of the Kubernetes cluster"
@@ -13,14 +12,12 @@ variable "environment" {
   }
 }
 
-# Версии чартов
 variable "prometheus_stack_version" {
   type        = string
   description = "Version of kube-prometheus-stack Helm chart"
   default     = "79.5.0"
 }
 
-# Ресурсы и масштабирование
 variable "prometheus_replicas" {
   type        = number
   description = "Number of Prometheus replicas"
@@ -33,14 +30,12 @@ variable "prometheus_retention" {
   default     = "30d"
 }
 
-# Секреты
 variable "grafana_admin_password" {
   type        = string
   description = "Grafana admin password"
   sensitive   = true
 }
 
-# Флаги функций
 variable "enable_alertmanager" {
   type        = bool
   description = "Enable Alertmanager"
@@ -53,8 +48,6 @@ variable "enable_thanos" {
   default     = false
 }
 
-
-# Yandex Cloud специфичные
 variable "load_balancer_annotations" {
   type        = map(string)
   description = "Annotations for LoadBalancer services"
@@ -67,14 +60,12 @@ variable "network_policy_enabled" {
   default     = true
 }
 
-# Дополнительные настройки Helm
 variable "extra_values" {
   type        = map(any)
   description = "Extra values to pass to Helm chart"
   default     = {}
 }
 
-# Node selector и tolerations
 variable "node_selector" {
   type        = map(string)
   description = "Node selector for monitoring components"

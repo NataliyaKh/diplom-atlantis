@@ -1,4 +1,3 @@
-# Публичные переменные
 cluster_name = "production-k8s"
 prometheus_stack_version = "58.2.0"
 prometheus_replicas = 2
@@ -6,15 +5,12 @@ prometheus_retention = "5d"
 enable_thanos = true
 storage_class_name = "yc-network-hdd"
 
-# Yandex Cloud настройки
 yandex_zone = "ru-central1-a"
 
-# Load Balancer аннотации
 load_balancer_annotations = {
   "yandex.cloud/load-balancer-type" = "external"
 }
 
-# Дополнительные Helm values
 extra_values = {
   "grafana.service.type" = "LoadBalancer"
   "grafana.service.annotations.yandex\\.cloud/load-balancer-type" = "external"

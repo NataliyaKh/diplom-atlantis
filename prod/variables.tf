@@ -1,4 +1,4 @@
-# Yandex Cloud настройки
+# Yandex Cloud
 variable "yandex_cloud_id" {
   type        = string
   description = "Yandex Cloud ID"
@@ -17,19 +17,19 @@ variable "yandex_zone" {
   default     = "ru-central1-a"
 }
 
-# Конфигурация кластера
+# Cluster
 variable "cluster_name" {
   type    = string
   default = "production-k8s"
 }
 
-# Версии
+# Versions
 variable "prometheus_stack_version" {
   type    = string
   default = "51.7.1"
 }
 
-# Ресурсы
+# Resources
 variable "prometheus_replicas" {
   type    = number
   default = 2
@@ -40,13 +40,13 @@ variable "prometheus_retention" {
   default = "30d"
 }
 
-# Флаги функций
+
+
 variable "enable_thanos" {
   type    = bool
   default = true
 }
 
-# Yandex Cloud специфичные настройки
 variable "storage_class_name" {
   type    = string
   default = "yc-network-hdd"
@@ -59,13 +59,11 @@ variable "load_balancer_annotations" {
   }
 }
 
-# Дополнительные values для Helm
 variable "extra_values" {
   type    = map(any)
   default = {}
 }
 
-# СЕКРЕТЫ
 variable "grafana_admin_password" {
   type      = string
   sensitive = true
