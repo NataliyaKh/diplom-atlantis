@@ -3,6 +3,10 @@ set -e
 
 echo "=== Applying Manifests ==="
 
+echo "Temporarily disabling ingress-nginx webhooks..."
+kubectl delete validatingwebhookconfiguration ingress-nginx-admission --ignore-not-found || true
+kubectl delete mutatingwebhookconfiguration ingress-nginx-admission --ignore-not-found || true
+
 echo "Applying Ingress Nginx..."
 kubectl apply -k manifests/ingress-nginx/
 

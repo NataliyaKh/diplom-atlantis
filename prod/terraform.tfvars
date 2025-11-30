@@ -3,7 +3,7 @@ prometheus_stack_version = "58.2.0"
 prometheus_replicas = 2
 prometheus_retention = "5d"
 enable_thanos = true
-storage_class_name = "yc-network-hdd"
+storage_class_name = "standard"
 
 yandex_zone = "ru-central1-a"
 
@@ -23,14 +23,14 @@ extra_values = {
   
   "grafana.persistence.enabled" = true
   "grafana.persistence.size" = "5Gi"
-  "grafana.persistence.storageClassName" = "yc-network-hdd"
+  "grafana.persistence.storageClassName" = "standard"
   
   "prometheus.prometheusSpec.replicas" = 2
   "prometheus.prometheusSpec.retention" = "2d"
-  "prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.storageClassName" = "yc-network-hdd"
+  "prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.storageClassName" = "standard"
   "prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.resources.requests.storage" = "5Gi"
   
   "alertmanager.alertmanagerSpec.replicas" = 1
-  "alertmanager.alertmanagerSpec.storage.volumeClaimTemplate.spec.storageClassName" = "yc-network-hdd"
+  "alertmanager.alertmanagerSpec.storage.volumeClaimTemplate.spec.storageClassName" = "standard"
   "alertmanager.alertmanagerSpec.storage.volumeClaimTemplate.spec.resources.requests.storage" = "5Gi"
 }

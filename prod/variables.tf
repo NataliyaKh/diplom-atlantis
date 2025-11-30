@@ -40,8 +40,6 @@ variable "prometheus_retention" {
   default = "30d"
 }
 
-
-
 variable "enable_thanos" {
   type    = bool
   default = true
@@ -49,7 +47,7 @@ variable "enable_thanos" {
 
 variable "storage_class_name" {
   type    = string
-  default = "yc-network-hdd"
+  default = "standard"
 }
 
 variable "load_balancer_annotations" {

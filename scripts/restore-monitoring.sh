@@ -4,6 +4,12 @@ echo "=== Starting Monitoring Restore ==="
 
 BACKUP_DIR="./backup"
 
+if [ ! -d "./backup" ] || [ -z "$(ls -A ./backup/ 2>/dev/null)" ]; then
+    echo "No backup found - first deployment"
+    echo '{"result": "no_backup_found"}'
+    exit 0
+fi
+
 find_latest_backup() {
     if [ -d "$BACKUP_DIR" ]; then
         local latest_backup=$(find "$BACKUP_DIR" -maxdepth 1 -type d -name "*" ! -name "." ! -name ".." | sort -r | head -1)
